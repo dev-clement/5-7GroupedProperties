@@ -1,0 +1,68 @@
+= Grouped Properties
+In this article, we will tackle about the group properties in a QML objects.
+
+:toc:
+:sectnums:
+
+== Introduction
+In QML, we are also able to group the property of a parent (such as `font` or even `anchors`) like the following:
+
+```qml
+Rectangle {
+    anchors {
+        fill: parent
+        verticalCenter: parent.verticalCenter
+    }
+}
+```
+
+As you can see, a grouped properties are just casual property regarding an object. What if we want to use them in our football team type ?
+
+NOTE: A grouped properties is a simple object that grouped properties together, let say we have `Defender` object, still, this object can contains grouped properties:
+
+```json
+Defender {
+    name: "Defender"
+    position: "Middle field"
+    playing: true
+
+    details {
+        height: 333
+        weight: 76
+        speed: 76
+    }
+}
+```
+
+In the example above, we have a `details` that contains some properties, and this then became a grouped property.
+
+IMPORTANT: You already saw this kind of properties for some other type of property (`font`, `border`, `anchors`) this is a way of grouping properties together.
+
+== Specifying a grouped properties
+When you are declaring a grouped properties, you can do it in several ways, such as:
+
+```json
+groupedProperties: { height: 133 ; weight: 76 ; speed: 32}
+```
+
+Another way of initializing it:
+
+```json
+groupedProperties {
+    height: 133
+    weight: 76
+    speed: 32
+}
+```
+
+And then here is the final way for initializing a grouped properties:
+
+```json
+groupedProperties.height: 133
+groupedProperties.weight: 76
+groupedProperties.speed: 32
+```
+
+Now that you know the syntax, you now need to create an object (class) that will contains all the properties we want to grouped, like the following:
+
+== Grouping properties
